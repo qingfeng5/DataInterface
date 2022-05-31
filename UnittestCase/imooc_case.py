@@ -1,7 +1,10 @@
 #coding=utf-8
 import sys
 import os
-base_path = os.getcwd()
+import io
+# base_path = os.getcwd()
+base_path ='F:\programming\interface_test\ImoocInterface'
+# print(base_path)
 import unittest
 sys.path.append(base_path)
 import json
@@ -9,14 +12,13 @@ import mock
 import HTMLTestRunner
 from Base.base_request import request
 def read_json():
-    with open(base_path+"/Config/user_data.json") as f:
+    with open(r'F:\programming\interface_test\Interface\Config\user_data.json') as f:
         data = json.load(f)
     return data
 
 def get_value(key):
     data = read_json()
     return data[key]
-
 
 
 host = 'http://www.imooc.com/'
@@ -35,7 +37,8 @@ class ImoocCase(unittest.TestCase):
         mock_method = mock.Mock(return_value=get_value('api3/getbanneradvertver2'))
         request.run_main = mock_method
         res = request.run_main('post',url,data)
-        self.assertEqual(res['errorCode'],1000)
+        # print(res)
+        self.assertEqual(res['error    Code'],1000)
 
     def beta4(self):
         url = host+'api3/beta4'
@@ -73,7 +76,7 @@ if __name__ == "__main__":
     suite = unittest.TestSuite()
     suite.addTest(ImoocCase('test_banner'))
     suite.addTest(ImoocCase('beta4'))
-    file_path = base_path+'/Report/report.html'
+    file_path = 'F:\programming\interface_test\Interface'+'\Report\report.html'
     with open(file_path,'wb') as f:
         runner = HTMLTestRunner.HTMLTestRunner(stream=f,title="this is test",description="Mushishi test")
         runner.run(suite)

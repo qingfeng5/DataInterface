@@ -5,6 +5,7 @@ import sys
 from collections.abc import Iterable
 import os
 base_path = os.getcwd()
+print(base_path)
 sys.path.append(base_path)
 
 class HandExcel:
@@ -12,8 +13,8 @@ class HandExcel:
         '''
         加载excel
         '''
-
-        open_excel = openpyxl.load_workbook(base_path+"/Case/imooc.xlsx")
+        #获取Excel所有数据openpyxl.load_workbook
+        open_excel = openpyxl.load_workbook('F:\programming\interface_test\Interface\Case\test.xlsx')
         return open_excel
 
     def get_sheet_data(self,index=None):
@@ -57,7 +58,8 @@ class HandExcel:
         wb = self.load_excel()
         wr = wb.active
         wr.cell(row,cols,value)
-        wb.save(base_path+"/Case/imooc.xlsx")
+        # wb.save(base_path+"/Case/imooc.xlsx")
+        wb.save("F:/programming/interface_test/Interface"+"/Case/test.xlsx")
 
 
     def get_columns_value(self,key=None):

@@ -1,8 +1,8 @@
 #coding=utf-8
 import sys
 import os
-base_path = os.getcwd()
-sys.path.append(base_path)
+# base_path = os.getcwd()
+# sys.path.append(base_path)
 from collections.abc import Iterable
 from Util.handle_excel import excel_data
 import json
@@ -14,7 +14,9 @@ from Base.base_request import request
 #['imooc_001', '登陆', 'yes', None, 'login', 'post', '{"username":"111111"}', 'yes', 'message', None]
 class RunMain:
     def run_case(self):
+        #获取行数
         rows = excel_data.get_rows()
+        #循环每一行
         for i in range(rows):
             cookie=None
             get_cookie = None

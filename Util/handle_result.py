@@ -53,6 +53,7 @@ if __name__ == "__main__":
     dict2 = {"aaa":"ddd","aaa1":"A1A","bbb":"BBBB","CC":[{"11":"22"},{"11":"44"}]}
     dict1={"aaa":"AAA","bbb":"BBBB","aaa3":"A1A","CC":[{"11":"22"},{"11":"44"}]}
     
-    #print(handle_result('api3/getbanneradvertver2',"10002"))
+    print(handle_result('api3/getcourseintro',"10002"))
+    print(handle_result('api3/getbanneradvertver3',"error"))
     #print(handle_result_json(dict1,dict2))
     print(get_result_json("api3/newcourseskill","error"))

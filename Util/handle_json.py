@@ -9,9 +9,11 @@ from jsonpath_rw import jsonpath,parse
 
 def read_json(file_name=None):
     if file_name == None:
-        file_path = base_path+"/Config/user_data.json"
+        # file_path = base_path+"/Config/user_data.json"
+        file_path =r'F:\programming\interface_test\Interface\Config\user_data.json'
     else:
-        file_path = base_path+file_name
+        # file_path = base_path+file_name
+        file_path = 'F:\programming\interface_test\Interface'+file_name
     with open(file_path,encoding='UTF-8') as f:
         data = json.load(f)
     return data
